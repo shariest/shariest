@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1d4ed8,100:38bdf8&height=230&section=header&text=Ryan&fontSize=80&fontColor=ffffff&fontAlignY=36&desc=Tech%20Lead%20%7C%20Senior%20Backend%20Engineer&descSize=22&descAlignY=58&animation=fadeIn" width="100%" alt="header" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,50:1d4ed8,100:38bdf8&height=230&section=header&text=Ryan&fontSize=80&fontColor=ffffff&fontAlignY=36&desc=Tech%20Lead%20%7C%20Senior%20Backend%20Engineer&descSize=22&descAlignY=58" width="100%" alt="header" />
 
 <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=3500&pause=1000&color=0EA5E9&center=true&vCenter=true&width=560&height=48&lines=Java+%2F+Spring+Boot+Tech+Lead;Backend+systems+that+are+built+to+last;LLM+serving+infra+%C2%B7+vLLM+on+GPUs;Explicit+code+over+magic" alt="Typing SVG" /></a>
 
