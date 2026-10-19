@@ -1,0 +1,53 @@
+name: Update stats cards
+
+# Generates the GitHub stats card into profile/ so the README does not depend on the public
+# github-readme-stats instance (rate-limited, public data only).
+#
+# GRS_TOKEN (optional repository secret): classic PAT with `repo` + `read:user`.
+#   - set:   private commits/PRs/issues are counted
+#   - unset: the action falls back to GITHUB_TOKEN and only public stats are counted
+# Only schedule/manual triggers on purpose: secrets must never reach pull_request runs.
+
+on:
+  schedule:
+    - cron: "23 21 * * *" # 06:23 KST daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # Pinned to a commit, and core_version "" makes the action import the core library locked in its
+      # pnpm lockfile (2.2.0). The default ("v2") npm-installs the latest 2.x without a lockfile on every run.
+      - name: Generate stats card (light)
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true
+          path: profile/stats.svg
+          token: ${{ secrets.GRS_TOKEN }}
+          core_version: ""
+          fail_on_error: true # keep the last good card instead of committing an error card
+
+      - name: Generate stats card (dark)
+        uses: stats-organization/github-readme-stats-action@2c498845f71017821efaad14293ebc736156ef21 # v2.1.0
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&include_all_commits=true&hide_border=true&theme=tokyonight
+          path: profile/stats-dark.svg
+          token: ${{ secrets.GRS_TOKEN }}
+          core_version: ""
+          fail_on_error: true
+
+      - name: Commit cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg
+          git commit -m "Update stats cards" || exit 0
+          git push
