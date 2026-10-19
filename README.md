@@ -1,4 +1,5 @@
-<!-- Services: capsule-render (header/footer), readme-typing-svg, shields.io + simple-icons (badges), github-readme-stats, streak-stats, hits.sh -->
+<!-- Services: capsule-render (header/footer), readme-typing-svg, shields.io + simple-icons (badges), streak-stats, hits.sh.
+     Stats card: generated daily into profile/ by .github/workflows/stats-cards.yml -->
 
 <div align="center">
 
@@ -45,8 +46,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=shariest&show_icons=true&include_all_commits=true&hide_border=true&theme=tokyonight" />
-    <img height="165" src="https://github-readme-stats.vercel.app/api?username=shariest&show_icons=true&include_all_commits=true&hide_border=true" alt="GitHub stats" />
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/stats-dark.svg" />
+    <img height="165" src="./profile/stats.svg" alt="GitHub stats" />
   </picture>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=shariest&hide_border=true&theme=tokyonight" />
